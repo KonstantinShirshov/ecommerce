@@ -1,4 +1,4 @@
-def test_products_init(product_1, product_2):
+def test_product_init(product_1, product_2):
     assert product_1.name == "55\" QLED 4K"
     assert product_1.description == "Фоновая подсветка"
     assert product_1.price == 123000.0
