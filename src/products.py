@@ -11,12 +11,28 @@ class Product:
         self.quantity = quantity
 
     @classmethod
-    def new_product(cls, dict_of_product):
-        name = dict_of_product["name"]
-        description = dict_of_product["description"]
-        quantity = dict_of_product["quantity"]
-        price = dict_of_product["price"]
-        return Product(name, description, price, quantity)
+    def new_product(cls, dict_of_product: dict):
+        from src.utils import create_objects_from_json, read_json
+
+        raw_data = read_json("../ecommerce/data/products.json")
+        categories_data = create_objects_from_json(raw_data)
+        for product in categories_data[0].products_list:
+            if dict_of_product["name"] == product.name:
+                quantity = dict_of_product["quantity"] + product.quantity
+                product.quantity = quantity
+                max_price = max(dict_of_product["price"], product.__price)
+                product.__price = max_price
+                product.name = dict_of_product["name"]
+                product.description = dict_of_product["description"]
+                break
+            else:
+                product.name = dict_of_product["name"]
+                product.description = dict_of_product["description"]
+                product.__price = dict_of_product["price"]
+                product.quantity = dict_of_product["quantity"]
+        return Product(
+            product.name, product.description, product.__price, product.quantity
+        )
 
     @property
     def price(self):

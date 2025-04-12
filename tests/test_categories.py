@@ -13,3 +13,9 @@ def test_categories_init(category_1, category_2):
     assert category_2.category_count == 2
     assert category_1.product_count == 2
     assert category_2.product_count == 2
+
+
+def test_categories_property(category_1, product_1):
+    assert category_1.product_count == 3
+    category_1.add_product(product_1)
+    assert category_1.product_count == 4
