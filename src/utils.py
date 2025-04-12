@@ -12,7 +12,7 @@ def read_json(path: str) -> dict:
     return data
 
 
-def creat_objects_from_json(data: dict) -> list:
+def create_objects_from_json(data: dict) -> list:
     categories = []
     for category in data:
         products_list = []
@@ -25,6 +25,7 @@ def creat_objects_from_json(data: dict) -> list:
 
 # if __name__ == '__main__':
 #     raw_data = read_json('../data/products.json')
-#     categories_data = creat_objects_from_json(raw_data)
-#     print(categories_data[1].name)
-#     print(categories_data[1].products)
+#     categories_data = create_objects_from_json(raw_data)
+#     # print(raw_data)
+#     # print(categories_data)
+#     print(categories_data[0].products_list)
