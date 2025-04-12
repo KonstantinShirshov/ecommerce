@@ -19,3 +19,6 @@ def test_categories_property(category_1, product_1):
     assert category_1.product_count == 3
     category_1.add_product(product_1)
     assert category_1.product_count == 4
+
+def test_str_categories(category_1):
+    assert str(category_1) == "Смартфоны, количество продуктов: 5 шт."
