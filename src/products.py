@@ -10,6 +10,12 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
+    def __str__(self):
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
+
+    def __add__(self, other):
+        return self.__price * self.quantity + other.__price * other.quantity
+
     @classmethod
     def new_product(cls, dict_of_product: dict):
         from src.utils import create_objects_from_json, read_json
