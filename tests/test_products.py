@@ -1,7 +1,6 @@
 import pytest
 
-
-from src.products import Product, Smartphone, LawnGrass
+from src.products import LawnGrass, Product, Smartphone
 
 
 def test_product_init(product_1, product_2):
