@@ -1,4 +1,8 @@
-class Product:
+from src.abstract_class import BaseProduct
+from src.mixin_class import MixinProduct
+
+
+class Product(BaseProduct, MixinProduct):
     name: str
     description: str
     _price: float
@@ -9,6 +13,7 @@ class Product:
         self.description = description
         self._price = price
         self.quantity = quantity
+        super().__init__()
 
     def __str__(self):
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
