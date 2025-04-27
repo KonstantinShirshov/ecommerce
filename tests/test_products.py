@@ -1,6 +1,6 @@
 import pytest
 
-from src.products import LawnGrass, Product, Smartphone
+from src.products import Product
 
 
 def test_product_init(product_1, product_2):
@@ -87,3 +87,13 @@ def test_products_smartphone_add(smartphone_1, smartphone_2):
 
 def test_products_lawngrass_add(lawngrass_1, lawngrass_2):
     assert lawngrass_1 + lawngrass_2 == 440000
+
+
+def test_print_mixin(capsys):
+    Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+    message = capsys.readouterr()
+    print(message)
+    assert (
+        message.out.strip()
+        == "Product(Samsung Galaxy S23 Ultra, 256GB, Серый цвет, 200MP камера, 180000.0, 5)"
+    )
