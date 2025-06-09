@@ -31,3 +31,13 @@ def test_str_categories(category_1):
 def test_categories_add_product_error(category_1, category_2):
     with pytest.raises(TypeError):
         category_1.add_product(category_2)
+
+
+def test_avg_price(category_1):
+    assert category_1.middle_price() == 180000.0
+
+
+def test_avg_price_with_zero_price(category_with_zero_price):
+    assert category_with_zero_price.middle_price() == 0
+
+
