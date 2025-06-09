@@ -41,9 +41,12 @@ class Category:
 
     def middle_price(self):
         try:
-            print(sum([product.price * product.quantity for product in self.__products]))
+            print(
+                sum([product.price * product.quantity for product in self.__products])
+            )
             print(sum([product.quantity for product in self.__products]))
-            return (sum([product.price * product.quantity for product in self.__products]) /
-                    sum([product.quantity for product in self.__products]))
+            return sum(
+                [product.price * product.quantity for product in self.__products]
+            ) / sum([product.quantity for product in self.__products])
         except ZeroDivisionError:
             return 0

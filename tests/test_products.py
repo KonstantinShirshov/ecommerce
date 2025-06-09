@@ -101,10 +101,6 @@ def test_print_mixin(capsys):
 
 def test_init_zero_quantity():
     with pytest.raises(ValueError) as exc_info:
-        Product(
-            "55\" QLED 4K",
-            "Фоновая подсветка",
-            123000.0,
-            0)
+        Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 0)
 
     assert str(exc_info.value) == "Товар с нулевым количеством не может быть добавлен"

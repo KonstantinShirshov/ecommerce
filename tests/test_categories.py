@@ -39,5 +39,3 @@ def test_avg_price(category_1):
 
 def test_avg_price_with_zero_price(category_with_zero_price):
     assert category_with_zero_price.middle_price() == 0
-
-

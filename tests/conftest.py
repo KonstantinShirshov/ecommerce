@@ -34,10 +34,11 @@ def category_2():
 @pytest.fixture
 def category_with_zero_price():
     return Category(
-        name='Телевизоры',
-        description='Современный телевизор,\
+        name="Телевизоры",
+        description="Современный телевизор,\
      который позволяет наслаждаться просмотром,\
-     станет вашим другом и помощником')
+     станет вашим другом и помощником",
+    )
 
 
 @pytest.fixture
