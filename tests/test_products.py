@@ -97,3 +97,10 @@ def test_print_mixin(capsys):
         message.out.strip()
         == "Product(Samsung Galaxy S23 Ultra, 256GB, Серый цвет, 200MP камера, 180000.0, 5)"
     )
+
+
+def test_init_zero_quantity():
+    with pytest.raises(ValueError) as exc_info:
+        Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 0)
+
+    assert str(exc_info.value) == "Товар с нулевым количеством не может быть добавлен"
